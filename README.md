@@ -1,7 +1,15 @@
 # HorribleChallenges
+
+![cmake v3.21+](https://img.shields.io/badge/cmake-3.21+-blue.svg)
+![C++20](https://img.shields.io/badge/C++-20-blue.svg)
+![GoogleTest v1.17.0](https://img.shields.io/badge/GoogleTest-1.17.0-blue.svg)
+![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+
+
 Horrible C++ Challenges
 
 ---
+
 
 A collection of advanced C++ template/metaprogramming challenges designed to exercise compile-time techniques (C++20). Each challenge lives under `src/` and includes a short spec (`challenge.md`), a minimal test harness and an `include/` folder for your implementation.
 
