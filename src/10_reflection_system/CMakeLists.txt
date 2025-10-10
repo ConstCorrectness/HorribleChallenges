@@ -1,16 +1,14 @@
-# 🪞 10. C++ Template Reflection System (Pre-C++26 Style)
+include_directories(include)
 
-Goal: Build a “reflection” system before official reflection exists.
+add_executable(
+  10_reflection_system
+  10_reflection_system.cc
+)
 
-```cpp
-struct User { std::string name; int id; };
+target_link_libraries(
+  10_reflection_system
+  GTest::gtest_main
+)
 
-constexpr auto fields = reflect<User>();
-// fields -> type_list<field<"name", std::string>, field<"id", int>>
-```
-
-💀 Challenge:
-
-- Use SFINAE to probe members via detection idiom.
-- Build type metadata tables at compile time.
-- Bonus: Make it interoperable with constexpr JSON serializers.
+include(GoogleTest)
+gtest_discover_tests(10_reflection_system)
