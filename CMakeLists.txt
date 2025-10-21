@@ -22,6 +22,8 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/utils/include)
+
 add_subdirectory(src/01_type_list)
 add_subdirectory(src/02_expr_eval)
 add_subdirectory(src/03_pattern_match)
@@ -33,5 +35,4 @@ add_subdirectory(src/08_type_tree)
 add_subdirectory(src/09_metafunc_compiler)
 add_subdirectory(src/10_reflection_system)
 
-
-
+add_subdirectory(src/utils/include)
