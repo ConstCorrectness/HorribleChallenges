@@ -5,7 +5,7 @@ project(HorribleChallenges
 	LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -22,6 +22,35 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+# Google Benchmark (current stable tag as of late 2025; bump when needed)
+FetchContent_Declare(
+  benchmark
+  GIT_REPOSITORY https://github.com/google/benchmark.git
+  GIT_TAG v1.9.0
+)
+
+# Avoid building benchmark's own tests
+set(BENCHMARK_ENABLE_TESTING OFF CACHE BOOL "" FORCE)
+# If you're on Linux and don't have gperftools, let it use stdc++fs etc.
+set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "" FORCE)
+
+FetchContent_MakeAvailable(benchmark)
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL Linux)
+	find_package(Threads REQUIRED)
+endif()
+
+
+
+
+
+
+
+
+
+
+
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/utils/include)
 
 add_subdirectory(src/01_type_list)
@@ -35,4 +64,7 @@ add_subdirectory(src/08_type_tree)
 add_subdirectory(src/09_metafunc_compiler)
 add_subdirectory(src/10_reflection_system)
 
-add_subdirectory(src/utils/include)
+
+add_subdirectory(src/utils)
+
+add_subdirectory(benchmarks)
