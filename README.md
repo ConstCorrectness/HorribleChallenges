@@ -3,6 +3,8 @@
 ![cmake v3.21+](https://img.shields.io/badge/cmake-3.21+-blue.svg)
 ![C++20](https://img.shields.io/badge/C++-20-blue.svg)
 ![GoogleTest v1.17.0](https://img.shields.io/badge/GoogleTest-1.17.0-blue.svg)
+![Google Benchmark v1.7](https://img.shields.io/badge/Google--Benchmark-1.7-blue.svg)
+
 ![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
 
