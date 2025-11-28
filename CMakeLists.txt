@@ -68,3 +68,19 @@ add_subdirectory(src/10_reflection_system)
 add_subdirectory(src/utils)
 
 add_subdirectory(benchmarks)
+
+
+# ---------------------------------------------------------
+# Aggregate library for all HorribleChallenges source code
+# ---------------------------------------------------------
+file(GLOB_RECURSE HC_SOURCES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cxx"
+)
+
+add_library(HorribleChallenges STATIC ${HC_SOURCES})
+target_include_directories(HorribleChallenges PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
+target_compile_features(HorribleChallenges PUBLIC cxx_std_23)
+
+add_subdirectory(tests)
